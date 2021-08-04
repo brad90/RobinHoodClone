@@ -1,0 +1,72 @@
+.landing {
+	background-color: lightcoral;
+	padding-top: 50px;
+	margin-top: -50px;
+}
+
+.landing-fold {
+	margin: auto;
+	display: flex;
+	height: 100%;
+	width: 1200px;
+	align-items: center;
+}
+
+.landing-left {
+	padding: 50px;
+	h1,
+	h2,
+	p {
+		color: white;
+	}
+	h1 {
+		font-size: 48px;
+	}
+	h2 {
+		font-weight: 400;
+	}
+}
+
+.landing-applinks {
+	padding-top: 25px;
+	display: flex;
+	max-width: 300px;
+}
+
+.landing-applink-img {
+	margin-right: 25px;
+	max-height: 50px;
+	padding-bottom: 10px;
+	cursor: pointer;
+}
+
+.landing-terms {
+	max-width: 300px;
+}
+
+.landing-second {
+	margin: 0;
+	background-color: ghostwhite;
+	padding: 50px;
+	h1 {
+		font-size: 48px;
+		text-align: center;
+	}
+}
+
+.landing-second-why {
+	display: flex;
+	justify-content: center;
+	padding-top: 50px;
+	flex-wrap: wrap;
+
+	div {
+		text-align: center;
+		width: 400px;
+		height: 200px;
+		padding: 50px;
+	}
+	div:hover {
+		background-color: white;
+	}
+}

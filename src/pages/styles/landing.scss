@@ -1,13 +1,14 @@
 .landing {
 	background-color: lightcoral;
-	padding-top: 50px;
+	padding-top: 100px;
 	margin-top: -50px;
+	height: 95vh;
 }
 
 .landing-fold {
 	margin: auto;
+	padding-top: 100px;
 	display: flex;
-	height: 100%;
 	width: 1200px;
 	align-items: center;
 }
@@ -29,8 +30,15 @@
 
 .landing-applinks {
 	padding-top: 25px;
+	justify-content: center;
 	display: flex;
-	max-width: 300px;
+
+	div{
+		text-align: center;
+		flex-wrap: wrap;
+		max-width: 150px;
+		margin: 30px;
+	}
 }
 
 .landing-applink-img {

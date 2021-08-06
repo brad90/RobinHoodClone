@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-export default function input({ height, width, placeholder }) {
+function Input({ height, width, placeholder, handleInput }) {
+	const [search, setSearch] = useState(null);
+
 	return (
-		<InputContainer height={height} width={width}>
-			<Input height={height} width={width} placeholder={placeholder} />
+		<InputContainer height={height} width={width} onClick={() => handleInput(search)}>
+			<InputBox height={height} width={width} placeholder={placeholder} onChange={(event) => setSearch(event.target.value)} />
 		</InputContainer>
 	);
 }
@@ -17,12 +19,15 @@ const InputContainer = styled.div`
 	padding: 5px 10px;
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 `;
 
-const Input = styled.input`
+const InputBox = styled.input`
 	height: ${(props) => props.height - 20}px;
 	width: ${(props) => props.width - 30}px;
 	border: none;
 	border-radius: 50px;
 	outline: none;
 `;
+
+export default Input;

@@ -12,28 +12,28 @@ import googleStore from "../assets/img/googleStoreLink.png";
 
 export default function Landing() {
 
-	const[searchValid, setSearchValid] = useState(false)
-
+	const [market, setMarket] = useState(null)
 	let history = useHistory()
-	
-	const onSearch = (search) => {
-		var stocklist500 = require('../configs/MarketTickers/S&P500.json');
 
-		if (search != null) {
-			for (var tick in stocklist500) {
-				if (stocklist500[tick].Name.toLowerCase().includes(search.toLowerCase()) || stocklist500[tick].Symbol.toLowerCase().includes(search.toLowerCase())){
-					setSearchValid(true)
-					console.log("here")
-					break
-				}
-			}
-			if (searchValid) {
-				history.push('/company/?', { ticker: stocklist500[tick].Symbol })
-			} else {
-				history.push('/stocklist?');
-			}
-				
+	const onSearch = (search) => {
+		if (search === null) return;
+
+		let stocklist500 = require('../configs/MarketTickers/S&P500.json');
+		
+
+		function checkSearchExists(search) {
+			return stocklist500.find( o => o.Name.toLowerCase().includes(search.toLowerCase()) || o.Symbol.toLowerCase().includes(search.toLowerCase()))
 		}
+
+		let validSearch = checkSearchExists(search) 
+		if (validSearch !== undefined) {
+			return history.push({
+				pathname: `/company/500/${validSearch['Symbol']}`,
+				state: { 'ticker': validSearch['Symbol'] }
+			},)
+		}
+		
+		history.push('/stocklist?');
 	};
 
 	return (

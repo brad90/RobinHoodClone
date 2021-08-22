@@ -7,6 +7,9 @@ import moment from 'moment';
 
 import Chart from "react-apexcharts";
 
+import CompanySummary from "../components/CompanyProfile/CompanySummary.js"
+import CompanyPE from "../components/CompanyProfile/CompanyPE.js"
+
 
 export default function CompanyProfile(props){
 
@@ -47,65 +50,22 @@ export default function CompanyProfile(props){
    if (loading){
       return <h1>Loading...</h1>
    } else {
-      const options = {
-         chart: {
-            id: "basic-bar",
-            dataLabels:{
-               enabled: true,
-            },
-            toolbar: {
-               show:false
-            },
-            zoom: {
-               enabled:false
-            }
-         },
-         xaxis: {
-            categories: historicalPrice.map(price => price.date),
-            labels: {
-               show: false
-            }
-         },
-         yaxis: {
-            labels: {
-               show: false
-            }
-         },
-         stroke: {
-            curve: 'smooth',
-            colors: ['#21ce99'],
-            width: 1.5
-         }
-      }
-      
-      const series = [
-         {
-            type: "line",
-            name: "series-1",
-            data: historicalPrice.map(price => price.close)
-         }
-      ]
-      
+
    return (
       <div className="company">
-         <div className="company_profile">
-            <div className="company_summary_bar_top">
-               <div>
-                  <h1>{profileData.price}</h1>
-               </div>
-               <div>
-                  <h1>{profileData.symbol}</h1>
-                  <h1>{profileData.companyName}</h1>
-                  <h3>{profileData.exchangeShortName}</h3>
-               </div>
-            </div>
-            <Chart
-               options={options}
-               series={series}
-               type="line"
-               width="800"
-               height="500"
-            />
+         <div className="company_sidenav">
+            <ol>
+               <li><a>Company Summary</a></li>
+               <li><a>P/E Ratio</a></li>
+               <li><a>P/E Ratio</a></li>
+               <li><a>P/E Ratio</a></li>
+               <li><a>P/E Ratio</a></li>
+               <li><a>P/E Ratio</a></li>
+            </ol>
+         </div>
+         <div className="company_profile_scoll">
+            <CompanySummary profileData={profileData} historicalPrice={historicalPrice} />
+            <CompanyPE profileData={profileData} historicalPrice={historicalPrice} />
          </div>
 
       </div>
@@ -115,21 +75,7 @@ export default function CompanyProfile(props){
    }
 
 }
-   const styles = {
-	button: {
-		background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-		borderRadius: 50,
-		border: 0,
-		color: "white",
-		height: 40,
-		padding: "0 30px",
-		boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-	},
-	buttonBlue: {
-		background: "linear-gradient(45deg, #2196f3 30%, #21cbf3 90%)",
-		boxShadow: "0 3px 5px 2px rgba(33, 203, 243, .30)",
-	},
-};
+
 
 
 // address: "3M Center, Bldg. 220-13E-26A"

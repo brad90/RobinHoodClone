@@ -1,15 +1,22 @@
 .company{
-   margin: auto;
-   width: 1200px;
+   margin: 50px;
    margin-top: 50px;
-}
-
-.company_profile{
-   background-color: lightgrey;
-   padding: 25px;
-}
-
-.company_summary_bar_top{
    display: flex;
-   justify-content: space-between;
+}
+
+.company_sidenav{
+   height: 100%;
+   width: 20%;
+   position: sticky;
+   z-index: 1;
+   top: 0;
+   left: 0;
+   overflow-x: hidden;
+   padding-top: 20px;
+   ol {
+      li{
+         padding: 5px 0;
+         cursor: pointer;
+      }
+   }
 }
